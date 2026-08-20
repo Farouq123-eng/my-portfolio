@@ -1,0 +1,224 @@
+/* Brand colors and reusable design values */
+:root{
+    --black: #0d0d0d;
+    --dark-black: #171717;
+    --gold: #c9a227;
+    --light-gold: #f0d477;
+    --cream: #fffaf0;
+    --muted: #c9c1ad;
+    --border: rgba(201, 162, 39, 0.35);
+
+    font-family: Arial, sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background-color: var(--black);
+    color: var(--cream);
+    line-height: 1.6;
+
+}
+/* Gives headings a more luxurious style  */
+h1,
+h2, 
+h3{
+    font-family: Georgia, serif;
+    color: var(--gold);
+    line-height: 1.2
+}
+a{
+    color: var(--light-gold);
+    text-decoration: none;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus{
+    outline: 2px solid var(--light-gold);
+    outline-offset: 4px;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 6%;
+    background-color: var(--dark-black);
+    border-bottom: 1px solid var(--border)
+}
+header img{
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0;
+    padding:0;
+    list-style: none;
+}
+nav a{
+    padding: 0.4rem 0;
+    color: var(--cream);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.2 ease,border-color 0.2s ease;
+}
+
+nav a:hover{
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+}
+
+main,
+.container{
+    width: min(1100px, 88%);
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+#home{
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+    padding: 5rem 8%;
+    text-align: center;
+    background:
+        linear-gradient(rgba(13, 13, 13, 0.72), rgba(13, 13, 13, 0.72)),
+        url("images/about.png") center / cover; 
+}
+
+#home h1{
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+}
+#home p{
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: var(--muted);
+    font-size: 1.1rem;
+
+}
+#home a,
+button{
+    display: inline-block;
+    margin: 0.4rem;
+    padding: 0.8rem 1.3rem;
+    border: 1px solid var(--gold);
+    background-color: var(--gold);
+    color: var(--black);
+    font-weight:bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+#home a:hover,
+button:hover{
+    background-color: transparent;
+    color: var(--light-gold);
+
+}
+main > h1,
+.container > h1{
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}
+#about img{
+    display: block;
+    width: min(100%, 700px);
+    margin-bottom: 2rem;
+    border: 3px solid var(--gold);
+
+}
+.menu-item{
+    display: inline-block;
+    vertical-align: top;
+    width: calc(33.333% - 1.2rem);
+    margin: 0.5rem;
+    padding: 1rem;
+    background-color: var(--dark-black);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+.menu-item img{
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+
+
+}
+.menut-item p{
+    color: var(--light-gold);
+    font-weight: bold;
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.gallery img{
+    width: 100%;
+    aspect-ratio: 1; 
+    object-fit: cover;
+    border: 2px solid var(--border);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.gallery img:hover{
+    transform: scale(1.03);
+    border-color: var(--gold);
+}
+form{
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+}
+input, 
+textarea{
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid var(--border);
+    background-color: var(--dark-black);
+    color: var(--cream);
+    font: inherit;
+}
+input::placeholder,
+textarea::placeholder{
+    color: var(--muted);
+}
+footer{
+    padding: 2rem 6%;
+    background-color: var(--dark-black);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    text-align: center;
+}
+@media (max-width: 700px) {
+    header{
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul{
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    .menu-item{
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
+    }
+    .gallery{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #home{
+        min-height: 65vh;
+        padding: 3rem 5%;
+        
+    }
+}
